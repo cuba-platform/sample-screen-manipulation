@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.sample.web.order.OrderEdit"
+        datasource="orderDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.sample.web.order">
+    <dsContext>
+        <datasource id="orderDs"
+                    class="com.company.sample.entity.Order"
+                    view="order-view"/>
+    </dsContext>
+    <layout expand="windowActions"
+            spacing="true">
+        <hbox spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="orderDs">
+                <column width="200px">
+                    <field id="date"/>
+                    <field id="num"/>
+                    <field id="customer"/>
+                </column>
+            </fieldGroup>
+            <vbox spacing="true">
+                <button caption="Select customer from lookup screen"
+                        invoke="selectCustomerFromLookupScreen"/>
+                <button caption="Select customer from simple screen"
+                        invoke="selectCustomerFromSimpleScreen"/>
+            </vbox>
+        </hbox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.sample.web.customer.CustomerList"
+        messagesPack="com.company.sample.web.customer">
+    <dsContext>
+        <collectionDatasource id="customersDs"
+                              allowCommit="false"
+                              class="com.company.sample.entity.Customer">
+            <query>
+                <![CDATA[select e from sample$Customer e order by e.name]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="buttonsBox"
+            spacing="true">
+        <lookupField id="customersField"
+                     optionsDatasource="customersDs"
+                     width="100%"/>
+        <hbox id="buttonsBox"
+              align="MIDDLE_RIGHT"
+              spacing="true">
+            <button id="okBtn"
+                    caption="Select"
+                    invoke="select"/>
+            <button id="cancelBtn"
+                    caption="Cancel"
+                    invoke="cancel"/>
+        </hbox>
+    </layout>
+</window>
