@@ -8,9 +8,12 @@
     <dsContext>
         <datasource id="orderDs"
                     class="com.company.sample.entity.Order"
-                    view="order-view"/>
+                    view="order-edit">
+            <collectionDatasource id="orderLinesDs"
+                                  property="orderLines"/>
+        </datasource>
     </dsContext>
-    <layout expand="windowActions"
+    <layout expand="orderLinesBox"
             spacing="true">
         <hbox spacing="true">
             <fieldGroup id="fieldGroup"
@@ -28,6 +31,31 @@
                         invoke="selectCustomerFromSimpleScreen"/>
             </vbox>
         </hbox>
+        <groupBox id="orderLinesBox"
+                  caption="msg://com.company.sample.entity/Order.orderLines">
+            <table id="orderLinesTable"
+                   height="100%"
+                   width="100%">
+                <actions>
+                    <action id="addOrderLine"
+                            caption="Add"
+                            invoke="addOrderLine"/>
+                    <action id="edit"
+                            openType="DIALOG"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="product"/>
+                    <column id="quantity"/>
+                </columns>
+                <rows datasource="orderLinesDs"/>
+                <buttonsPanel>
+                    <button action="orderLinesTable.addOrderLine"/>
+                    <button action="orderLinesTable.edit"/>
+                    <button action="orderLinesTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

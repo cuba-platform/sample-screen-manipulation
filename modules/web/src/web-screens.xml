@@ -11,4 +11,12 @@
             template="com/company/sample/web/order/order-edit.xml"/>
     <screen id="customer-list"
             template="com/company/sample/web/customer/customer-list.xml"/>
+    <screen id="sample$OrderLine.edit"
+            template="com/company/sample/web/orderline/orderline-edit.xml"/>
+    <screen id="sample$Product.browse"
+            template="com/company/sample/web/product/product-browse.xml"/>
+    <screen id="quantity-dialog"
+            template="com/company/sample/web/order/quantity-dialog.xml"/>
+    <screen id="sample$Product.edit"
+            template="com/company/sample/web/product/product-edit.xml"/>
 </screen-config>

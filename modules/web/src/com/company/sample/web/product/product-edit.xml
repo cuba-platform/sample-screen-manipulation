@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.sample.web.product.ProductEdit"
+        datasource="productDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.sample.web.product">
+    <dsContext>
+        <datasource id="productDs"
+                    class="com.company.sample.entity.Product"
+                    view="product-view"/>
+    </dsContext>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="productDs">
+            <column width="200px">
+                <field id="name"/>
+                <field id="customer"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

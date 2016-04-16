@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.cubaVersion = '6.1.1'
+    ext.cubaVersion = '6.1.2'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -37,10 +37,8 @@ cuba {
         dir = "$project.rootDir/build/tomcat"
     }
     ide {
-        copyright = '''Copyright (c) ${today.year} ${project.name}''' // Copyright Notice for IDEA project
-        classComment ='''/**
- * @author ${USER}
- */'''
+        
+        
         vcs = 'Git'
         
     }

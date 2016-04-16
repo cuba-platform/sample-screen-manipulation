@@ -8,7 +8,7 @@
     <dsContext>
         <collectionDatasource id="ordersDs"
                               class="com.company.sample.entity.Order"
-                              view="order-view">
+                              view="order-browse">
             <query>
                 <![CDATA[select e from sample$Order e]]>
             </query>
