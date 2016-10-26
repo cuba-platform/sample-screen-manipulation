@@ -13,4 +13,4 @@ The method opens the products lookup screen (`ProductBrowse`) passing a currentl
 
 * `ProductBrowse` screen modifies its datasource query depending on passed customer. If a customer is provided, the table shows only products for this customer and those without reference to a customer.
 
-Based on CUBA Platform 6.2.5
+Based on CUBA Platform 6.3.2
