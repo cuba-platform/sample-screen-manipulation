@@ -1,6 +1,6 @@
 # Screen Manipulation
 
-This project demonstrates how to programmatically manipulate screens in [CUBA](https://www.cuba-platform.com) applications.
+This project demonstrates how to programmatically manipulate screens in CUBA applications.
 
 * `CustomerEdit` screen controller defines dialog options in its `init()` method.
 
