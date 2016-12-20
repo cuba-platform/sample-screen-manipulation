@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ TODO Copyright
+  -->
+
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="sample.web.orders.order.QuantityDialog"
+        focusComponent="field"
+        messagesPack="sample.web.orders.order">
+    <layout expand="buttonsBox"
+            spacing="true">
+        <label id="lab"
+               value="lab"/>
+        <textField id="field"
+                   width="100%"/>
+        <hbox id="buttonsBox"
+              align="MIDDLE_RIGHT"
+              spacing="true">
+            <button id="okBtn"
+                    caption="OK"
+                    invoke="confirm"/>
+            <button id="cancelBtn"
+                    caption="Cancel"
+                    invoke="cancel"/>
+        </hbox>
+    </layout>
+</window>

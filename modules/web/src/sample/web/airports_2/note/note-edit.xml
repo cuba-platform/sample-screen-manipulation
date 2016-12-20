@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" caption="msg://editCaption"
+        class="sample.web.airports_2.note.NoteEdit" datasource="noteDs" focusComponent="fieldGroup"
+        messagesPack="sample.web.airports_2.note">
+    <dsContext>
+        <datasource id="noteDs" class="sample.entity.airports.Note" view="_local"/>
+    </dsContext>
+    <dialogMode forceDialog="true" height="AUTO" modal="true" width="400"/>
+    <layout expand="windowActions" spacing="true">
+        <fieldGroup id="fieldGroup" datasource="noteDs">
+            <column width="250px">
+                <field id="text"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions" screen="editWindowActions"/>
+    </layout>
+</window>

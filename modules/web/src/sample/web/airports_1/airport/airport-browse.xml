@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ TODO Copyright
+  -->
+
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="sample.web.airports_1.airport.AirportBrowse"
+        focusComponent="airportsTable"
+        lookupComponent="airportsTable"
+        messagesPack="sample.web.airports_1.airport">
+    <dsContext>
+        <collectionDatasource id="airportsDs"
+                              class="sample.entity.airports.Airport"
+                              view="_local">
+            <query>
+                <![CDATA[select e from sample$Airport e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="airportsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="airportsTable"
+                datasource="airportsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="airportsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="airportsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="airportsTable.create"/>
+                <button id="editBtn"
+                        action="airportsTable.edit"/>
+                <button id="removeBtn"
+                        action="airportsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

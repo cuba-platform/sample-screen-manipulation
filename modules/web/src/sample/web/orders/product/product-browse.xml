@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ TODO Copyright
+  -->
+
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="sample.web.orders.product.ProductBrowse"
+        focusComponent="productsTable"
+        lookupComponent="productsTable"
+        messagesPack="sample.web.orders.product">
+    <dsContext>
+        <collectionDatasource id="productsDs"
+                              class="sample.entity.orders.Product"
+                              view="product-view">
+            <query>
+                <![CDATA[select e from sample$Product e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="productsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="productsTable"
+                datasource="productsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="productsTable"
+               width="100%">
+            <actions>
+                <action id="create"
+                        openType="DIALOG"/>
+                <action id="edit"
+                        openType="DIALOG"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="customer"/>
+            </columns>
+            <rows datasource="productsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="productsTable.create"/>
+                <button id="editBtn"
+                        action="productsTable.edit"/>
+                <button id="removeBtn"
+                        action="productsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

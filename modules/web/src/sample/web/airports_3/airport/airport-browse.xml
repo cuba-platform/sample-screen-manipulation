@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" caption="msg://browseCaption"
+        class="sample.web.airports_3.airport.AirportBrowse" focusComponent="airportsTable"
+        lookupComponent="airportsTable" messagesPack="sample.web.airports_3.airport">
+    <dsContext>
+        <collectionDatasource id="airportsDs" class="sample.entity.airports.Airport" view="_local">
+            <query>
+                <![CDATA[select e from sample$Airport e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="terminalsDs" class="sample.entity.airports.Terminal" view="_local">
+            <query>
+                <![CDATA[select e from sample$Terminal e
+where e.airport.id = :ds$airportsDs
+order by e.name]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600" width="800"/>
+    <layout spacing="true">
+        <split id="split" height="100%" orientation="horizontal" width="100%">
+            <vbox height="100%" margin="false,true,false,false" spacing="true">
+                <table id="airportsTable" height="100%" width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                        <action id="refresh"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                    </columns>
+                    <rows datasource="airportsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+                        <button id="createBtn" action="airportsTable.create"/>
+                        <button id="editBtn" action="airportsTable.edit"/>
+                        <button id="removeBtn" action="airportsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </vbox>
+            <vbox height="100%" margin="false,false,false,true" spacing="true">
+                <table id="terminalsTable" height="100%" width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                        <action id="refresh"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                    </columns>
+                    <rows datasource="terminalsDs"/>
+                    <buttonsPanel>
+                        <button action="terminalsTable.create"/>
+                        <button action="terminalsTable.edit"/>
+                        <button action="terminalsTable.remove"/>
+                        <button action="terminalsTable.refresh"/>
+                    </buttonsPanel>
+                </table>
+            </vbox>
+        </split>
+    </layout>
+</window>
