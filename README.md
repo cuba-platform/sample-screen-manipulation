@@ -24,7 +24,7 @@ Editing of nested entity structures can be implemented with the help of the CUBA
 
 ### One level of nesting
 
-Let's start from a not particularly deep structure: an **Airport** and its **Terminals**. Studio can implement editing of such structure automatically if you define the relation as COMPOSITION (see the [Airport]() entity). The inner working is explained in the [documentation](https://doc.cuba-platform.com/manual-latest/composition_impl_recipe.html), so we will not dwell on it.   
+Let's start from a not particularly deep structure: an **Airport** and its **Terminals**. Studio can implement editing of such structure automatically if you define the relation as COMPOSITION (see the [Airport](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/global/src/sample/entity/airports/Airport.java) entity). The inner working is explained in the [documentation](https://doc.cuba-platform.com/manual-latest/composition_impl_recipe.html), so we will not dwell on it.   
 
 ### Two levels of nesting
 
