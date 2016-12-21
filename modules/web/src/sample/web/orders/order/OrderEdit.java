@@ -1,7 +1,3 @@
-/*
- * TODO Copyright
- */
-
 package sample.web.orders.order;
 
 import sample.entity.orders.Customer;
