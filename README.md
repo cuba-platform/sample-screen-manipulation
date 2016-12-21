@@ -8,15 +8,15 @@ This project demonstrates some aspects of working with UI screens in CUBA applic
 
 ## Programmatic manipulation
 
-* [CustomerEdit]() screen controller defines some dialog options in its `init()` method.
+* [CustomerEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/customer/CustomerEdit.java) screen controller defines some dialog options in its `init()` method.
 
-* [CustomerList]() is a controller of a simple screen that contains a drop-down list of customers. It is invoked by the `selectCustomerFromSimpleScreen()` method of the [OrderEdit]() controller.
+* [CustomerList](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/customer/CustomerList.java) is a controller of a simple screen that contains a drop-down list of customers. It is invoked by the `selectCustomerFromSimpleScreen()` method of the [OrderEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/OrderEdit.java) controller.
 
-* [OrderEdit]() screen controller demonstrates two ways of looking up a `Customer`: from a lookup screen and from an arbitrary screen.
+* [OrderEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/OrderEdit.java) screen controller demonstrates two ways of looking up a `Customer`: from a lookup screen and from an arbitrary screen.
 
-    OrderEdit also contains `addOrderLine()` method which is invoked by `addOrderLine` action. The method opens a products lookup screen passing a currently selected customer to it. After a user selects a product, the [QuantityDialog]() screen is opened for entering product quantity. When the user closes it, a new instance of `OrderLine` entity is created and added to the table.
+    OrderEdit also contains `addOrderLine()` method which is invoked by `addOrderLine` action. The method opens a products lookup screen passing a currently selected customer to it. After a user selects a product, the [QuantityDialog](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/QuantityDialog.java) screen is opened for entering product quantity. When the user closes it, a new instance of `OrderLine` entity is created and added to the table.
 
-* [ProductBrowse]() screen modifies its datasource query depending on passed customer. If a customer is provided, the table shows only products for this customer and those without reference to a customer.
+* [ProductBrowse](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/product/ProductBrowse.java) screen modifies its datasource query depending on passed customer. If a customer is provided, the table shows only products for this customer and those without reference to a customer.
 
 ## Deeply nested structures
 
@@ -24,7 +24,7 @@ Editing of nested entity structures can be implemented with the help of the CUBA
 
 ### One level of nesting
 
-Let's start from a not particularly deep structure: an **Airport** and its **Terminals**. Studio can implement editing of such structure automatically if you define the relation as COMPOSITION (see the [Airport]() entity). The inner working is explained in the [documentation](https://doc.cuba-platform.com/manual-6.3/composition_impl_recipe.html), so we will not dwell on it.   
+Let's start from a not particularly deep structure: an **Airport** and its **Terminals**. Studio can implement editing of such structure automatically if you define the relation as COMPOSITION (see the [Airport]() entity). The inner working is explained in the [documentation](https://doc.cuba-platform.com/manual-latest/composition_impl_recipe.html), so we will not dwell on it.   
 
 ### Two levels of nesting
 
@@ -34,7 +34,7 @@ But, as described in the [Deep Composition](https://doc.cuba-platform.com/manual
 
 1. In the airport view that is used in the airport editor, define loading of the whole structure, i.e. terminals and nested meeting points. See `airport-terminals-meetingPoints-view`.
 
-2. In the airport editor, define an additional nested datasource for meeting points. It is not connected to any visual components, but used for receiving data from nested editor screens. See [airport-browse.xml](). 
+2. In the airport editor, define an additional nested datasource for meeting points. It is not connected to any visual components, but used for receiving data from nested editor screens. See [airport-edit.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_1/airport/airport-edit.xml). 
 
 The whole structure of screens for this case is located in the `sample.web.airports_1` package of the `web` module and is available via the *Airports > Airports (1)* menu item in the running application.
 
@@ -48,16 +48,16 @@ CUBA can handle compositions with up to 2 levels of nesting. Here we have 3 leve
 
     See the source code in the `sample.web.airports_2` package and working screens in the *Airports > Airports (2)* menu item of the running application. Consider the following source code elements:
 
-    * [airport-edit.xml]() contains a standalone datasource for terminals instead of the nested one. This standalone datasource is linked to the airport datasource and thus loads terminals for the edited airport. Besides, airport editor contains `extendedEditWindowActions` frame which allows a user to save airport without closing the screen. 
+    * [airport-edit.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_2/airport/airport-edit.xml) contains a standalone datasource for terminals instead of the nested one. This standalone datasource is linked to the airport datasource and thus loads terminals for the edited airport. Besides, airport editor contains `extendedEditWindowActions` frame which allows a user to save airport without closing the screen. 
     
-    * In the `postInit()` method of the [AirportEdit]() controller, we manage the `enabled` state of the terminal's *Create* action and pass the current airport instance to initialize the `airport` attribute of a created terminal.
+    * In the `postInit()` method of the [AirportEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_2/airport/AirportEdit.java) controller, we manage the `enabled` state of the terminal's *Create* action and pass the current airport instance to initialize the `airport` attribute of a created terminal.
         
 2. In the second approach, we have split the airport browser into two panels: one for the list of airports and another for the dependent list of terminals. That is the list of terminals is now outside of the airport editor. The terminal's *Create* action is disabled until an airport is selected.
 
     See the source code in the `sample.web.airports_3` package and working screens in the *Airports > Airports (3)* menu item of the running application. Consider the following source code elements:
     
-    * [airport-browse.xml]() contains a standalone datasource for the list of terminals. It is linked to the airports datasource and thus loads terminals for a selected airport. 
+    * [airport-browse.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_3/airport/airport-browse.xml) contains a standalone datasource for the list of terminals. It is linked to the airports datasource and thus loads terminals for a selected airport. 
 
-    * In the `init()` method of the [AirportBrowse]() controller, we manage the `enabled` state of the terminal's *Create* action and pass the currently selected airport instance to initialize the `airport` attribute of a created terminal.
+    * In the `init()` method of the [AirportBrowse](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_3/airport/AirportBrowse.java) controller, we manage the `enabled` state of the terminal's *Create* action and pass the currently selected airport instance to initialize the `airport` attribute of a created terminal.
 
 Based on CUBA Platform 6.3.5
