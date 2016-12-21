@@ -32,7 +32,7 @@ Let's add an entity to the bottom level, so the structure will look as follows: 
 
 But, as described in the [Deep Composition](https://doc.cuba-platform.com/manual-latest/composition_deep_recipe.html) section, in order to edit terminals and meeting points together with the airport, you have to do the following things manually:
 
-1. In the airport view that is used in the airport editor, define loading of the whole structure, i.e. terminals and nested meeting points. See `airport-terminals-meetingPoints-view`.
+1. In the airport view that is used in the airport editor, define loading of the whole structure, i.e. terminals and nested meeting points. See [airport-terminals-meetingPoints-view](https://github.com/cuba-platform/sample-screen-manipulation/blob/207de471a3e099be373c8f132caddf9c03f6e020/modules/global/src/sample/views.xml#L59-L64).
 
 2. In the airport editor, define an additional nested datasource for meeting points. It is not connected to visual components, but used for saving data received from nested editor screens. See [airport-edit.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_1/airport/airport-edit.xml). 
 
@@ -42,7 +42,7 @@ The whole structure of screens for this case is located in the `sample.web.airpo
 
 Imagine that you need an additional entity that contains some details of the meeting point: **Note**. So the whole structure looks as follows: **Airport > Terminal > Meeting Point > Note**. 
 
-CUBA can handle compositions with up to 2 levels of nesting. Here we have 3 levels, so we should limit the depth either from top or from bottom. Below we consider two different (from the user experience perspective) approaches of excluding the airport from the composition. Both of them solve the same problem: as now terminals are saved to the database independently from the airport, you cannot save a terminal for a newly created airport which is not saved to the database yet. 
+CUBA can handle compositions with up to 2 levels of nesting. Here we have 3 levels, so we should limit the depth either from the top or from the bottom. Below we consider two different approaches (from the user experience perspective) of excluding the airport from the composition. Both of them solve the same problem: as now terminals are saved to the database independently from the airport, you cannot save a terminal for a newly created airport which is not saved to the database yet. 
  
 1. In the first approach, the airport browser and editor look the same as above, but the editor has additional *Save* button to save a new airport without closing the screen. A user cannot create terminals until the new airport is saved. 
 
