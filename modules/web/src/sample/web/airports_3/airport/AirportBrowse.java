@@ -36,11 +36,15 @@ public class AirportBrowse extends AbstractLookup {
         terminalsTableCreate.setWindowId("sample$Terminal.edit2");
         terminalsTableEdit.setWindowId("sample$Terminal.edit2");
 
+        // Disable the terminals "create" action initially
         terminalsTableCreate.setEnabled(false);
 
         airportsDs.addItemChangeListener(e -> {
+            // Get currently selected airport
             Airport airport = e.getItem();
+            // Enable terminals "create" action only if an airport is selected
             terminalsTableCreate.setEnabled(airport != null);
+            // Pass the currently selected airport to be set to the "airport" attribute of a newly created terminal
             terminalsTableCreate.setInitialValues(ParamsMap.of("airport", airport));
         });
     }

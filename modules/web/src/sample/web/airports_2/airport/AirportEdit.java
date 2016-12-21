@@ -26,13 +26,17 @@ public class AirportEdit extends AbstractEditor<Airport> {
         terminalsTableCreate.setWindowId("sample$Terminal.edit2");
         terminalsTableEdit.setWindowId("sample$Terminal.edit2");
 
+        // Disable notification on saving entity without closing the screen
         setShowSaveNotification(false);
     }
 
     @Override
     protected void postInit() {
+        // Get currently edited airport
         Airport airport = getItem();
+        // Enable "create" action only if the edited airport is saved to the database
         terminalsTableCreate.setEnabled(!PersistenceHelper.isNew(airport));
+        // Pass the currently edited airport to be set to the "airport" attribute of a newly created terminal
         terminalsTableCreate.setInitialValues(ParamsMap.of("airport", airport));
     }
 }
