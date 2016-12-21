@@ -42,9 +42,9 @@ The whole structure of screens for this case is located in the `sample.web.airpo
 
 Imagine that you need an additional entity that contains some details of the meeting point: **Note**. So the whole structure looks as follows: **Airport > Terminal > Meeting Point > Note**. 
 
-CUBA can handle compositions with up to 2 levels of nesting. Here we have 3 levels, so we should limit the depth either from top or from bottom. Below we consider two different (from the user experience perspective) approaches of excluding the airport from the composition. Both of them solve the same problem: as now terminals are saved to the database independently from the airport, you cannot save a terminal for a newly created airport which is not yet saved to the database. 
+CUBA can handle compositions with up to 2 levels of nesting. Here we have 3 levels, so we should limit the depth either from top or from bottom. Below we consider two different (from the user experience perspective) approaches of excluding the airport from the composition. Both of them solve the same problem: as now terminals are saved to the database independently from the airport, you cannot save a terminal for a newly created airport which is not saved to the database yet. 
  
-1. In the first approach, the airport browser and editor looks the same as above, but the editor has additional *Save* button to save a new airport without closing the screen. A user cannot create terminals until the new airport is saved. 
+1. In the first approach, the airport browser and editor look the same as above, but the editor has additional *Save* button to save a new airport without closing the screen. A user cannot create terminals until the new airport is saved. 
 
     See the source code in the `sample.web.airports_2` package and working screens in the *Airports > Airports (2)* menu item of the running application. Consider the following source code elements:
 
