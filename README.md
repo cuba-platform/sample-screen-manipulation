@@ -34,7 +34,7 @@ But, as described in the [Deep Composition](https://doc.cuba-platform.com/manual
 
 1. In the airport view that is used in the airport editor, define loading of the whole structure, i.e. terminals and nested meeting points. See `airport-terminals-meetingPoints-view`.
 
-2. In the airport editor, define an additional nested datasource for meeting points. It is not connected to any visual components, but used for receiving data from nested editor screens. See [airport-edit.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_1/airport/airport-edit.xml). 
+2. In the airport editor, define an additional nested datasource for meeting points. It is not connected to visual components, but used for saving data received from nested editor screens. See [airport-edit.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_1/airport/airport-edit.xml). 
 
 The whole structure of screens for this case is located in the `sample.web.airports_1` package of the `web` module and is available via the *Airports > Airports (1)* menu item in the running application.
 
