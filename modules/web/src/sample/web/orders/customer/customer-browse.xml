@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
-        caption="msg://browseCaption"
-        class="sample.web.orders.customer.CustomerBrowse"
-        focusComponent="customersTable"
-        lookupComponent="customersTable"
-        messagesPack="sample.web.orders.customer">
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" caption="msg://browseCaption"
+        class="sample.web.orders.customer.CustomerBrowse" focusComponent="customersTable"
+        lookupComponent="customersTable" messagesPack="sample.web.orders.customer">
     <dsContext>
-        <collectionDatasource id="customersDs"
-                              class="sample.entity.orders.Customer"
-                              view="_local">
+        <collectionDatasource id="customersDs" class="sample.entity.orders.Customer" view="_local">
             <query>
                 <![CDATA[select e from sample$Customer e]]>
+                <filter>
+                    <c>e.name like :(?i)component$filterNameField</c>
+                </filter>
             </query>
         </collectionDatasource>
     </dsContext>
-    <layout expand="customersTable"
-            spacing="true">
-        <filter id="filter"
-                applyTo="customersTable"
-                datasource="customersDs">
-            <properties include=".*"/>
-        </filter>
-        <table id="customersTable"
-               width="100%">
+    <layout expand="customersTable" spacing="true">
+        <hbox expand="filterNameField" spacing="true" width="409px">
+            <label align="MIDDLE_LEFT" value="Filter by name"/>
+            <textField id="filterNameField"/>
+            <button id="filterApplyBtn" caption="Apply" invoke="applyFilter"/>
+        </hbox>
+        <table id="customersTable" width="100%">
             <actions>
                 <action id="create"/>
                 <action id="edit"/>
@@ -35,14 +30,10 @@
             </columns>
             <rows datasource="customersDs"/>
             <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn"
-                        action="customersTable.create"/>
-                <button id="editBtn"
-                        action="customersTable.edit"/>
-                <button id="removeBtn"
-                        action="customersTable.remove"/>
+            <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+                <button id="createBtn" action="customersTable.create"/>
+                <button id="editBtn" action="customersTable.edit"/>
+                <button id="removeBtn" action="customersTable.remove"/>
             </buttonsPanel>
         </table>
     </layout>
