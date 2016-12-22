@@ -1,7 +1,3 @@
-/*
- * TODO Copyright
- */
-
 package sample.web.airports_2.airport;
 
 import com.haulmont.bali.util.ParamsMap;
