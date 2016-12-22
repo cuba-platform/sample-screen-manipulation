@@ -10,7 +10,7 @@ This project demonstrates some aspects of working with UI screens in CUBA applic
 
 * [CustomerEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/customer/CustomerEdit.java) screen controller defines some dialog options in its `init()` method.
 
-* [customer-browse.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/customer/customer-browse.xml) screen has a simple custom filter instead of default generic filter component. It is based on the datasource's [query filter](https://doc.cuba-platform.com/manual-6.3/datasource_query_filter.html) feature.
+* [customer-browse.xml](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/customer/customer-browse.xml) screen has a simple custom filter instead of default generic filter component. It is based on the datasource's [query filter](https://doc.cuba-platform.com/manual-latest/datasource_query_filter.html) feature.
 
 * [CustomerList](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/customer/CustomerList.java) is a controller of a simple screen that contains a drop-down list of customers. It is invoked by the `selectCustomerFromSimpleScreen()` method of the [OrderEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/OrderEdit.java) controller.
 
