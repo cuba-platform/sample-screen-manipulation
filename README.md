@@ -62,4 +62,4 @@ CUBA can handle compositions with up to 2 levels of nesting. Here we have 3 leve
 
     * In the `init()` method of the [AirportBrowse](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_3/airport/AirportBrowse.java) controller, we manage the `enabled` state of the terminal's *Create* action and pass the currently selected airport instance to initialize the `airport` attribute of a created terminal.
 
-Based on CUBA Platform 6.5.3
+Based on CUBA Platform 6.5.4
