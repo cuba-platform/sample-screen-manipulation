@@ -14,6 +14,8 @@ This project demonstrates some aspects of working with UI screens in CUBA applic
 
 * [CustomerList](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/customer/CustomerList.java) is a controller of a simple screen that contains a drop-down list of customers. It is invoked by the `selectCustomerFromSimpleScreen()` method of the [OrderEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/OrderEdit.java) controller.
 
+* [OrderBrowse](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/OrderBrowse.java) screen controller shows how you can programmatically discover parameters of the generic Filter component and set their values. When a user selects a filter, the controller looks up parameters of `Date` type and sets them to the current date.
+
 * [OrderEdit](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/OrderEdit.java) screen controller demonstrates two ways of looking up a `Customer`: from a lookup screen and from an arbitrary screen.
 
     OrderEdit also contains `addOrderLine()` method which is invoked by `addOrderLine` action. The method opens a products lookup screen passing a currently selected customer to it. After a user selects a product, the [QuantityDialog](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/QuantityDialog.java) screen is opened for entering product quantity. When the user closes it, a new instance of `OrderLine` entity is created and added to the table.
@@ -62,4 +64,4 @@ CUBA can handle compositions with up to 2 levels of nesting. Here we have 3 leve
 
     * In the `init()` method of the [AirportBrowse](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/airports_3/airport/AirportBrowse.java) controller, we manage the `enabled` state of the terminal's *Create* action and pass the currently selected airport instance to initialize the `airport` attribute of a created terminal.
 
-Based on CUBA Platform 6.5.4
+Based on CUBA Platform 6.5.5

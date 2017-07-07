@@ -1,3 +1,17 @@
+INSERT INTO SEC_FILTER (ID,CREATE_TS,CREATED_BY,VERSION,UPDATE_TS,UPDATED_BY,DELETE_TS,DELETED_BY,COMPONENT,NAME,CODE,XML,USER_ID)
+VALUES ('78bb59ff-9699-4597-7cfd-fcc7f7e7fc8a',current_timestamp,'admin',1,current_timestamp,null,null,null,'[sample$Order.browse].filter','By date',null,'<?xml version="1.0" encoding="UTF-8"?>
+<filter>
+  <and>
+    <c name="date" class="java.util.Date" operatorType="GREATER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.date >= :component$filter.date48138]]>
+      <param name="component$filter.date48138" javaClass="java.util.Date">NULL</param>
+    </c>
+    <c name="date" class="java.util.Date" operatorType="LESSER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.date <= :component$filter.date58173]]>
+      <param name="component$filter.date58173" javaClass="java.util.Date">NULL</param>
+    </c>
+  </and>
+</filter>
+', null);
+
 insert into SAMPLE_CUSTOMER
 (ID, CREATE_TS, CREATED_BY, VERSION, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, EMAIL)
 values ('405d5d7d-ed85-10e5-5e45-eeea2e574d18', '2016-04-11 09:34:55', 'admin', 1, '2016-04-11 09:34:55', null, null, null, 'Globex Corporation', 'info@globex.com');
