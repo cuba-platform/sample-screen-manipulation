@@ -1,10 +1,5 @@
 package sample.web.orders.order;
 
-import sample.entity.orders.Customer;
-import sample.entity.orders.Order;
-import sample.entity.orders.OrderLine;
-import sample.entity.orders.Product;
-import sample.web.orders.customer.CustomerList;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.WindowManager;
@@ -12,12 +7,17 @@ import com.haulmont.cuba.gui.components.AbstractEditor;
 import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.components.PickerField;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
+import sample.entity.orders.Customer;
+import sample.entity.orders.Order;
+import sample.entity.orders.OrderLine;
+import sample.entity.orders.Product;
+import sample.web.orders.customer.CustomerList;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class OrderEdit extends AbstractEditor<Order> {
 
@@ -68,7 +68,12 @@ public class OrderEdit extends AbstractEditor<Order> {
                     }
                 },
                 WindowManager.OpenType.THIS_TAB,
-                ParamsMap.of("customer", getItem().getCustomer()) // Pass Customer to the Products lookup screen
+                ParamsMap.of(
+                        "customer", getItem().getCustomer(), // Pass Customer to the Products lookup screen
+                        "added", orderLinesDs.getItems().stream()
+                                                .map(line -> line.getProduct().getId())
+                                                .collect(Collectors.toList())  // Pass list of already added items IDs to filter them out
+                )
         );
     }
 

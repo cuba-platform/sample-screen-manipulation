@@ -21,6 +21,8 @@ This project demonstrates some aspects of working with UI screens in CUBA applic
     OrderEdit also contains `addOrderLine()` method which is invoked by `addOrderLine` action. The method opens a products lookup screen passing a currently selected customer to it. After a user selects a product, the [QuantityDialog](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/order/QuantityDialog.java) screen is opened for entering product quantity. When the user closes it, a new instance of `OrderLine` entity is created and added to the table.
 
 * [ProductBrowse](https://github.com/cuba-platform/sample-screen-manipulation/blob/master/modules/web/src/sample/web/orders/product/ProductBrowse.java) screen modifies its datasource query depending on passed customer. If a customer is provided, the table shows only products for this customer and those without reference to a customer.
+    
+    When the product browser is opened for looking up items to be used as order lines, it also creates and applies programmatically a filter to show only products not yet added to the order.
 
 ## Deeply nested structures
 
