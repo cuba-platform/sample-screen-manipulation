@@ -5,4 +5,8 @@
         <displayXmlAttributesOnSeparateLines>false</displayXmlAttributesOnSeparateLines>
         <maxXmlLineLength>120</maxXmlLineLength>
     </settings>
+    <functionalitySettings>
+        <functionality id="oneToOneIndex"
+                       state="ENABLE"/>
+    </functionalitySettings>
 </studio>
